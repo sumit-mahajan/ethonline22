@@ -1,10 +1,25 @@
-import ToggleFollowButton from "../components/toggle_follow_button/ToggleFollowButton";
+import { getProfiles, getDefaultProfile } from "../api/profiles";
+import FilledButton from "../components/filled_button/FilledButton";
+import { getAddressFromENS } from "../utils/ethers_service";
+
+// Active Lens address to test 0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3
 
 function TestNewComponent() {
   return (
     <>
       <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
-        <ToggleFollowButton isFollowing={true} />
+        <FilledButton
+          text={"Default Profile"}
+          onclick={() => {
+            getDefaultProfile("0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3");
+          }}
+        />
+        {/* <FilledButton
+          text={"GET ENS Address"}
+          onclick={() => {
+            getAddressFromENS("sha.eth");
+          }}
+        /> */}
       </div>
     </>
   );

@@ -7,13 +7,25 @@ export const ethersProvider = new ethers.providers.Web3Provider(
   window.ethereum
 );
 
-export const getAddress = async () => {
-  const accounts = await window.ethereum.request({
-    method: "eth_requestAccounts",
-  });
-  return accounts[0];
-};
+export const ensProvider = new ethers.providers.JsonRpcProvider(
+  "https://rpc.ankr.com/eth"
+);
 
 export const signText = (text) => {
   return ethersProvider.getSigner().signMessage(text);
 };
+
+export const getENSDomain = async (address) => {
+  return await ensProvider.lookupAddress(address);
+};
+
+export const getAddressFromENS = async (ensName) => {
+  const address = await ensProvider.resolveName(ensName);
+  console.log(address);
+  return address;
+};
+
+export const displayAddress = (address) =>
+  address.substring(0, 5) +
+  "..." +
+  address.substring(address.length - 3, address.length);

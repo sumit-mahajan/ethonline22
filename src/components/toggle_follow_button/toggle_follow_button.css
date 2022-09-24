@@ -4,6 +4,7 @@
     border-radius: 0.5rem;
     padding: 0.25rem 1rem;
     transition: all 0.1s linear;
+    border: 1px solid var(--primary);
 }
 
 .unfollow-btn {
@@ -13,7 +14,6 @@
 
 .follow-btn {
     background-color: transparent;
-    border: 1px solid var(--primary);
     color: var(--primary);
 }
 
@@ -27,13 +27,11 @@
 }
 
 .unfollow-btn:hover {
-    border: 1px solid var(--primary);
     background-color: transparent;
     color: var(--primary);
 }
 
 .follow-btn:hover {
-    border: none;
     background-color: var(--primary);
     color: white;
 }

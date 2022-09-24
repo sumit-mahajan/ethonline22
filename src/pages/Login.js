@@ -5,7 +5,10 @@ import { explorePublications } from "../queries/publication/explore_publications
 const Login = () => {
   return (
     <>
-      <button className="bg-slate-500 rounded-sm p-1 ml-5 mt-5" onClick={login}>
+      <button
+        className="bg-slate-500 rounded-sm p-1 ml-5 mt-5"
+        onClick={() => login("0x3EE8d84ad9082DeC4fc9dEadAB3A63B4AfecF87d")}
+      >
         Login
       </button>
       <button

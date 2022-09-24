@@ -1,11 +1,8 @@
-import { getAddress, signText } from "../utils/ethers_service";
+import { signText } from "../utils/ethers_service";
 import { generateChallenge } from "../queries/auth/generate_challenge";
 import { authenticate } from "../queries/auth/authenticate";
 
-export const login = async () => {
-  // we grab the address of the connected wallet
-  const address = await getAddress();
-
+export const login = async (address) => {
   // we request a challenge from the server
   const challengeResponse = await generateChallenge(address);
 

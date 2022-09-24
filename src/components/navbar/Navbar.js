@@ -1,19 +1,35 @@
-import { useHistory, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useConnection } from "../../utils/connection_service";
+import { displayAddress, getENSDomain } from "../../utils/ethers_service";
 import Box from "../utils/Box";
 import "./navbar.css";
 
 function Navbar() {
-  const location = useLocation();
+  const { accounts } = useConnection();
+
+  const [profile, setProfile] = useState("");
+
   let showItems = true;
 
-  if (location.pathname === "/") {
+  if (!accounts.length) {
     showItems = false;
   }
+
+  useEffect(() => {
+    const fetchAsync = async () => {
+      const ensName = await getENSDomain(accounts[0]);
+      ensName && setProfile(ensName);
+    };
+    if (accounts[0]) {
+      setProfile(displayAddress(accounts[0]));
+      fetchAsync();
+    }
+  }, [accounts]);
 
   return (
     <>
       <nav className="navbar flex justify-between items-center">
-        <a href="/home">
+        <a href="/">
           <div className="flex justify-between items-center">
             <div className="v-circle"></div>
             <Box width="10" />
@@ -29,7 +45,7 @@ function Navbar() {
             <div className="flex justify-between items-center">
               <div className="v-circle"></div>
               <Box width="10" />
-              <h2 className="subtitle-text">sumit07.eth</h2>
+              <h2 className="subtitle-text">{profile}</h2>
             </div>
           </div>
         )}

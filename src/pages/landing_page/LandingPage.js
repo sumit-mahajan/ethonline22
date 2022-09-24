@@ -1,9 +1,11 @@
 import FilledButton from "../../components/filled_button/FilledButton";
 import Box from "../../components/utils/Box";
+import { useConnection } from "../../utils/connection_service";
 
 import "./landing_page.css";
 
 function LandingPage() {
+  const { connectWallet } = useConnection();
   return (
     <>
       <main className="flex justify-between items-center container landingContainer">
@@ -20,7 +22,7 @@ function LandingPage() {
           <FilledButton
             classes="landing-btn"
             text="Connect Wallet"
-            onclick={() => {}}
+            onclick={connectWallet}
           />
         </div>
         <div className="imageBox">
