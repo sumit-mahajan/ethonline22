@@ -1,0 +1,26 @@
+.profile-name {
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.profile-page-info {
+    margin-left: 3rem;
+}
+
+.profile-menus {
+    padding-left: 3rem;
+}
+
+.profile-page-data .gap {
+    flex: 0.75;
+}
+
+.profile-page-data .center-content {
+    flex: 3;
+    padding-left: 3rem;
+    padding-right: 6rem;
+}
+
+.profile-page-data .suggested-profiles {
+    flex: 0.75;
+}

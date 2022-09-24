@@ -1,0 +1,16 @@
+.heading {
+    font-size: 4.4rem;
+    font-weight: 700;
+}
+
+.bio-field {
+    width: 100vw;
+    padding-right: calc(100vw - 100%);
+}
+
+.error-text {
+    display: grid;
+    place-content: center;
+    color: red;
+    font-size: 1.6rem;
+}

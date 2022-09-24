@@ -1,0 +1,30 @@
+.landing-btn {
+    border-radius: 1rem !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.fil-btn {
+    width: fit-content;
+    display: grid;
+    place-content: center;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    padding: 0.25rem 1rem;
+    transition: all 0.1s linear;
+}
+
+.fil-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.fil-btn:active {
+    transform: scale(0.98);
+}
+
+.btn-txt {
+    color: white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    user-select: none;
+}

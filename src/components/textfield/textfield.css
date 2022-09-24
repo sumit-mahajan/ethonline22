@@ -1,0 +1,31 @@
+.fieldLabel {
+    font-size: 1.6rem;
+}
+
+.errorText {
+    color: red;
+    font-size: 1.6rem;
+}
+
+.textbox {
+    height: 4rem;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    border: 1px solid var(--text-color);
+}
+
+.textbox:focus {
+    border: 1.5px solid var(--text-color);
+    outline: none;
+}
+
+@media (max-width: 760px) {
+
+    .textbox {
+        border-width: 0.5px;
+    }
+}

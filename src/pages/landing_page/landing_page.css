@@ -1,0 +1,22 @@
+.landingContainer {
+    height: calc(100vh - 130px);
+}
+
+.heading {
+    font-size: 4.4rem;
+    font-weight: 700;
+}
+
+.content {
+    flex: 1;
+}
+
+.imageBox {
+    flex: 1;
+    height: 55vh;
+}
+
+.imageBox img {
+    height: 55vh;
+    margin: auto;
+}

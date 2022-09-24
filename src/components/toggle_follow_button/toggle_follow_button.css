@@ -1,0 +1,61 @@
+.btn {
+    display: grid;
+    place-content: center;
+    border-radius: 0.5rem;
+    padding: 0.25rem 1rem;
+    transition: all 0.1s linear;
+}
+
+.unfollow-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.follow-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.unfollow-btn:hover {
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.follow-btn:hover {
+    border: none;
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-txt {
+    font-weight: 500;
+    font-size: 1.8rem;
+    user-select: none;
+}
+
+.follow-btn .btn-txt {
+    color: var(--primary);
+}
+
+.follow-btn:hover .btn-txt {
+    color: white;
+}
+
+.unfollow-btn .btn-txt {
+    color: white;
+}
+
+.unfollow-btn:hover .btn-txt {
+    color: var(--primary);
+}

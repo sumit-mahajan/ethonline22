@@ -1,0 +1,35 @@
+.title {
+    font-weight: 500;
+    font-size: 2rem;
+    color: black;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.title-text {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: black;
+}
+
+.subtitle-text {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.common-text {
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.placeholder-text {
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--light-text-color);
+}

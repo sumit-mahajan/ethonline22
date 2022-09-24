@@ -1,0 +1,12 @@
+.post-page .menus {
+    flex: 0.75;
+}
+
+.post-page .center-content {
+    flex: 3;
+    padding-right: 6rem;
+}
+
+.post-page .search-profiles {
+    flex: 0.75;
+}

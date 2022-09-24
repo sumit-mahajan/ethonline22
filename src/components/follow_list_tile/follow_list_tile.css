@@ -1,0 +1,15 @@
+.v-circle {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    aspect-ratio: 1/1;
+}
+
+.bio {
+    width: 16vw;
+    font-size: 1.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

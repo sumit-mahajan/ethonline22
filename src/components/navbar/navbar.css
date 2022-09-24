@@ -1,0 +1,14 @@
+.navbar {
+    height: 60px;
+    width: 100vw;
+    padding-right: calc(100px + 100vw - 100%);
+    padding-left: 100px;
+}
+
+.v-circle {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    aspect-ratio: 1/1;
+}

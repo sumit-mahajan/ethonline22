@@ -1,0 +1,12 @@
+.menus {
+    flex: 0.75;
+}
+
+.center-content {
+    flex: 3;
+    padding-right: 6rem;
+}
+
+.search-profiles {
+    flex: 0.75;
+}

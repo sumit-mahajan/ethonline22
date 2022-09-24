@@ -1,0 +1,26 @@
+.parent-container {
+    position: relative;
+}
+
+.cover-image {
+    position: relative;
+    width: calc(100vw-200px);
+    height: 20rem;
+    background-color: var(--light-text-color);
+}
+
+.profile-image {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    height: 20rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.follow-div {
+    position: absolute;
+    right: 0%;
+    bottom: 10%;
+}

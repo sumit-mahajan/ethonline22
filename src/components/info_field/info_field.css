@@ -1,0 +1,9 @@
+.info-container {
+    width: min-content;
+}
+
+.info-label {
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: black;
+}

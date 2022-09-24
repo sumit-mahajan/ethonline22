@@ -1,0 +1,30 @@
+.input-box {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid var(--light-text-color);
+    border-radius: 0.5rem;
+    outline: none;
+    padding: 0.5rem 1rem;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid var(--text-color);
+}
+
+textarea::placeholder{
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--light-text-color);
+}
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+    background-color: var(--light-text-color);
+    border-radius: 10%;
+}
