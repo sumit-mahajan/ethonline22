@@ -1,12 +1,18 @@
 .menus {
+    position: fixed;
+    top: 90px;
+}
+
+.gap {
     flex: 0.75;
 }
 
 .center-content {
     flex: 3;
-    padding-right: 6rem;
+    padding-right: 4rem;
 }
 
 .search-profiles {
     flex: 0.75;
+    /* position: fixed; */
 }

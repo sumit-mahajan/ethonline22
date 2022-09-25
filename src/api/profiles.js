@@ -1,6 +1,7 @@
 import { getDefaultProfileRequest } from "../queries/profile/default_profile";
 import { getProfilesRequest } from "../queries/profile/get_profiles";
 import { createProfileRequest } from "../queries/profile/create_profile";
+import { exploreProfilesRequest } from "../queries/profile/explore_profiles";
 
 export const getProfiles = async (address) => {
   const ownedBy = [address];
@@ -25,4 +26,12 @@ export const createProfile = async (handle, profilePictureUri) => {
   });
 
   return result;
+};
+
+export const getPopularProfiles = async () => {
+  const response = await exploreProfilesRequest({
+    sortCriteria: "MOST_FOLLOWERS",
+  });
+
+  return response.exploreProfiles.items;
 };

@@ -1,19 +1,30 @@
+import { formatImage } from "../../utils/helpers";
 import Box from "../utils/Box";
 import "./post.css";
 
 function Post({
-  profileImage = "",
+  profileImage,
   profileName,
   profileHandle,
   time,
   caption,
   image,
-  actionData = "",
+  actionData,
 }) {
   return (
     <>
-      <div className="flex">
-        <div className="v-circle-lg"></div>
+      <div className="flex cursor-pointer hover:bg-gray-300 post-card">
+        {profileImage ? (
+          <div className="v-circle-lg">
+            <img
+              className="post-profile-img"
+              src={formatImage(profileImage)}
+              alt="Profile Picture"
+            />
+          </div>
+        ) : (
+          <div className="v-circle-lg"></div>
+        )}
 
         <Box width={25} />
 
@@ -31,7 +42,9 @@ function Post({
           {image && (
             <>
               <Box height={5} />
-              <div className="image-box"></div>
+              <div className="image-box">
+                <img className="post-img" src={formatImage(image)} alt="Post" />
+              </div>
             </>
           )}
           <Box height={20} />
@@ -40,22 +53,34 @@ function Post({
             <div className="flex items-center">
               <div className="icon"></div>
               <Box width={10} />
-              <div className="common-text">10</div>
+              <div className="common-text">
+                {actionData.totalAmountOfReactions != 0 &&
+                  actionData.totalAmountOfReactions}
+              </div>
             </div>
             <div className="flex items-center">
               <div className="icon"></div>
               <Box width={10} />
-              <div className="common-text">2</div>
+              <div className="common-text">
+                {actionData.totalAmountOfComments != 0 &&
+                  actionData.totalAmountOfComments}
+              </div>
             </div>
             <div className="flex items-center">
               <div className="icon"></div>
               <Box width={10} />
-              <div className="common-text">3</div>
+              <div className="common-text">
+                {actionData.totalAmountOfMirrors != 0 &&
+                  actionData.totalAmountOfMirrors}
+              </div>
             </div>
             <div className="flex items-center">
               <div className="icon"></div>
               <Box width={10} />
-              <div className="common-text">6</div>
+              <div className="common-text">
+                {actionData.totalAmountOfCollects != 0 &&
+                  actionData.totalAmountOfCollects}
+              </div>
             </div>
 
             <Box width={5} />

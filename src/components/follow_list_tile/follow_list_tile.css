@@ -6,6 +6,12 @@
     aspect-ratio: 1/1;
 }
 
+.profile-profile-img {
+    height: 3.5rem;
+aspect-ratio: 1/1;
+object-fit: cover;
+}
+
 .bio {
     width: 16vw;
     font-size: 1.6rem;

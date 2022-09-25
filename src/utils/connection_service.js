@@ -152,11 +152,15 @@ export function ConnectionProvider(props) {
   }, [connectWallet, state]);
 
   useEffect(() => {
+    if (sessionStorage.getItem("login") === "true") {
+      connectWallet();
+    }
     // initialize();
 
     if (window.ethereum) {
       // Detect metamask account change
       window.ethereum.on("accountsChanged", async function (accounts) {
+        sessionStorage.setItem("login", "false");
         connectWallet();
       });
 

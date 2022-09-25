@@ -13,6 +13,7 @@ export const login = async (address) => {
       return;
     }
   }
+  console.log("fasfre");
 
   // we request a challenge from the server
   const challengeResponse = await generateChallenge(address);
@@ -34,4 +35,6 @@ export const login = async (address) => {
   localStorage.setItem("recent_address", address);
 
   console.log("Logged In");
+
+  sessionStorage.setItem("login", "true");
 };

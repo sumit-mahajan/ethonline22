@@ -1,8 +1,8 @@
-import { apolloClient } from "../../utils/api_service";
-// this is showing you how you use it with react for example
-// if your using node or something else you can import using
-// @apollo/client/core!
-import { gql } from "@apollo/client";
+import { executeQuery } from "../../utils/api_service";
+
+export const explorePublicationsRequest = (request) => {
+  return executeQuery(EXPLORE_PUBLICATIONS, request);
+};
 
 const EXPLORE_PUBLICATIONS = `
   query($request: ExplorePublicationRequest!) {
@@ -341,12 +341,3 @@ const EXPLORE_PUBLICATIONS = `
     }
   }
 `;
-
-export const explorePublications = (explorePublicationQueryRequest) => {
-  return apolloClient.query({
-    query: gql(EXPLORE_PUBLICATIONS),
-    variables: {
-      request: explorePublicationQueryRequest,
-    },
-  });
-};

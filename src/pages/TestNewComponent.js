@@ -1,5 +1,11 @@
 import { login } from "../api/login";
-import { getProfiles, getDefaultProfile, createProfile } from "../api/profiles";
+import {
+  getProfiles,
+  getDefaultProfile,
+  createProfile,
+  getPopularProfiles,
+} from "../api/profiles";
+import { getPopularPosts } from "../api/publications";
 import FilledButton from "../components/filled_button/FilledButton";
 import { useConnection } from "../utils/connection_service";
 import { getAddressFromENS } from "../utils/ethers_service";
@@ -19,7 +25,6 @@ function TestNewComponent() {
   return (
     <>
       <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
-        <ChooseProfilePage />
         {/* <FilledButton
           text={"Create Profile"}
           onclick={() => {
@@ -28,13 +33,13 @@ function TestNewComponent() {
               "bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq"
             );
           }}
-        />
-        <FilledButton
-          text={"Default Profile"}
-          onclick={() => {
-            getDefaultProfile(accounts[0]);
-          }}
         /> */}
+        <FilledButton
+          text={"Popular Profiles"}
+          onclick={() => {
+            getPopularProfiles();
+          }}
+        />
         {/* <div>
           <input
             id="inp"

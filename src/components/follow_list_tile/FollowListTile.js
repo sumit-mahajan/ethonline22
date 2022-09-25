@@ -1,12 +1,23 @@
+import { formatImage } from "../../utils/helpers";
 import ToggleFollowButton from "../toggle_follow_button/ToggleFollowButton";
 import Box from "../utils/Box";
 import "./follow_list_tile.css";
 
-function FollowListTile({ image = "", name, bio, onFollow }) {
+function FollowListTile({ image, name, bio, onFollow }) {
   return (
     <>
-      <div className="flex justify-between items-center">
-        <div className="v-circle"></div>
+      <div className="flex justify-between items-center hover:cursor-pointer">
+        {image ? (
+          <div className="v-circle">
+            <img
+              className="profile-profile-img"
+              src={formatImage(image)}
+              alt="Profile Picture"
+            />
+          </div>
+        ) : (
+          <div className="v-circle"></div>
+        )}
 
         <Box width="15" />
 
