@@ -19,6 +19,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<FirstLoad />} />;
+            <Route path="/home" element={<HomePage />} />;
             <Route path="/register" element={<RegisterPage />} />;
             <Route path="/profile/:id" element={<ProfilePage />} />;
             <Route path="/post/:id" element={<PostPage />} />;

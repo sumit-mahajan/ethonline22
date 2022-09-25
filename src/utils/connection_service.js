@@ -24,7 +24,6 @@ export function ConnectionProvider(props) {
     chainId: defaultChainId,
     accounts: [],
     currProfile: "",
-    profiles: [],
     isLoading: false,
     isLoggedIn: false,
     error: "",

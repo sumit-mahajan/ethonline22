@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Loading from "../components/loading/Loading";
 import { useConnection } from "../utils/connection_service";
 import ChooseProfilePage from "./choose_profile_page/ChooseProfilePage";
@@ -8,6 +9,8 @@ import TestNewComponent from "./TestNewComponent";
 export default function FirstLoad() {
   const { isLoggedIn, isLoading, accounts, currProfile } = useConnection();
 
+  const navigate = useNavigate();
+
   const isConnected = accounts.length > 0;
 
   if (isLoading && !isLoggedIn) {
@@ -17,9 +20,9 @@ export default function FirstLoad() {
   }
   if (isConnected && isLoggedIn) {
     if (!currProfile) {
-      return <ChooseProfilePage />;
+      navigate("/chooseprofile");
     } else {
-      return <HomePage />;
+      navigate("/home");
     }
   }
 

@@ -1,0 +1,8 @@
+.menu-item:hover {
+    cursor: pointer;
+color: var(--primary);
+}
+
+.active {
+    color: var(--primary);
+}

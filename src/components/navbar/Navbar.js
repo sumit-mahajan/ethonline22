@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useConnection } from "../../utils/connection_service";
 import { displayAddress, getENSDomain } from "../../utils/ethers_service";
 import Box from "../utils/Box";
@@ -29,13 +30,13 @@ function Navbar() {
   return (
     <>
       <nav className="navbar flex justify-between items-center">
-        <a href="/">
+        <Link to="/home">
           <div className="flex justify-between items-center">
             <div className="v-circle"></div>
             <Box width="10" />
             <h2 className="title">FALCON</h2>
           </div>
-        </a>
+        </Link>
         {showItems && (
           <div className="nav-items flex justify-between items-center">
             <div className="v-circle"></div>

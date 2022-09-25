@@ -1,21 +1,43 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import FollowListTile from "../../components/follow_list_tile/FollowListTile";
 import Post from "../../components/post/Post";
 import PostInputBox from "../../components/post_input_box/PostInputBox";
+import SideMenuItem from "../../components/side_menu_item/SideMenuItem";
 import Box from "../../components/utils/Box";
+import { useConnection } from "../../utils/connection_service";
 import "./home_page.css";
 
 function HomePage() {
+  const { isLoggedIn, accounts, currProfile } = useConnection();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isConnected = accounts[0];
+
+    if (!isConnected) {
+      navigate("/");
+    } else if (isConnected && isLoggedIn && !currProfile) {
+      navigate("/chooseprofile");
+    }
+  }, [accounts]);
+
   return (
     <>
       <Box height={30} />
       <div className="flex container">
         <aside className="menus">
-          <p className="subtitle">Home</p>
+          <SideMenuItem text={"Home"} linkTo="/home" isActive={true} />
           <Box height={15} />
 
-          <p className="subtitle">Profile</p>
+          <SideMenuItem
+            text={"Profile"}
+            linkTo={"/profile/1"}
+            isActive={false}
+          />
           <Box height={15} />
-          <p className="subtitle">About</p>
+          <SideMenuItem text={"About"} linkTo="/about" isActive={false} />
         </aside>
 
         <main className="center-content">

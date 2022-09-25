@@ -39,7 +39,7 @@ function ChooseProfilePage() {
             <p
               onClick={() => {
                 setCurrentUserProfile(profile);
-                navigate("/");
+                navigate("/home");
               }}
               className="subtitle-text hover:cursor-pointer"
             >
