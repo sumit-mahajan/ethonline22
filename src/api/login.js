@@ -13,7 +13,6 @@ export const login = async (address) => {
       return;
     }
   }
-  console.log("fasfre");
 
   // we request a challenge from the server
   const challengeResponse = await generateChallenge(address);

@@ -28,7 +28,7 @@ function ChooseProfilePage() {
   return (
     <>
       <main className="container">
-        <Box height={50} />
+        <Box height={110} />
         <p className="title">
           To get started, choose any one of the following profiles registered at
           your address

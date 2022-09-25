@@ -1,5 +1,4 @@
-import { gql } from "@apollo/client";
-import { apolloClient, executeQuery } from "../../utils/api_service";
+import { executeQuery } from "../../utils/api_service";
 
 export const getProfilesRequest = async (request) => {
   const result = await executeQuery(GET_PROFILES, request);

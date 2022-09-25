@@ -40,7 +40,7 @@ function HomePage() {
       setLoading(true);
       setPosts(await getPopularPosts());
       setProfiles(await getPopularProfiles());
-      console.log("Profiles", profiles);
+      console.log(currProfile);
       setLoading(false);
     }
     fetch();

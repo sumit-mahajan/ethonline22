@@ -4,19 +4,29 @@ import {
   getDefaultProfile,
   createProfile,
   getPopularProfiles,
+  getProfile,
 } from "../api/profiles";
-import { getPopularPosts } from "../api/publications";
+import {
+  createPost,
+  getPopularPosts,
+  getPostById,
+  getPostsByProfileId,
+} from "../api/publications";
 import FilledButton from "../components/filled_button/FilledButton";
 import { useConnection } from "../utils/connection_service";
 import { getAddressFromENS } from "../utils/ethers_service";
-import { uploadImage } from "../utils/ipfs_service";
+import { uploadImage, uploadMetadata } from "../utils/ipfs_service";
 import ChooseProfilePage from "./choose_profile_page/ChooseProfilePage";
+import { v4 as uuidv4 } from "uuid";
+import { follow } from "../api/interactions";
 
 // Active Lens address to test 0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3
+// Sample profileId 0x487b
 // My Profile picture hash bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq
+// Uploaded post Id 4a1bd977-eeab-43e8-8d87-cfa8ff26d3ce
 
 function TestNewComponent() {
-  const { accounts } = useConnection();
+  const { accounts, currProfile } = useConnection();
 
   const onFileChange = async (event) => {
     console.log(await uploadImage(event.target.files[0]));
@@ -25,21 +35,58 @@ function TestNewComponent() {
   return (
     <>
       <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+        <FilledButton
+          text={"Create Post"}
+          onclick={async () => {
+            const metadata = {
+              version: "1.0.0",
+              mainContentFocus: "IMAGE",
+              metadata_id: uuidv4(),
+              description:
+                "I love GetX. It’s the best state management system on the planet. Flutter has no state primitives. It's never confusing and there are no edge cases.",
+              locale: "en-US",
+              content:
+                "I love GetX. It’s the best state management system on the planet. Flutter has no state primitives. It's never confusing and there are no edge cases.",
+              external_url: null,
+              image:
+                "ipfs://bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq",
+              imageMimeType: "image/png",
+              name: "Name",
+              attributes: [],
+              tags: ["using_api_examples"],
+              appId: "api_examples_github",
+            };
+
+            const metadataCID = await uploadMetadata(metadata);
+
+            console.log(metadataCID);
+
+            createPost(
+              "0x4863", //sumit1.test
+              "ipfs://" + metadataCID
+            );
+          }}
+        />
+        <FilledButton
+          text={"Follow"}
+          onclick={async () => {
+            console.log(await follow("0x4863"));
+          }}
+        />
         {/* <FilledButton
-          text={"Create Profile"}
-          onclick={() => {
-            createProfile(
-              "sumit1",
-              "bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq"
+          text={"Get Post By Id"}
+          onclick={async () => {
+            console.log(
+              await getPostById("4a1bd977-eeab-43e8-8d87-cfa8ff26d3ce")
             );
           }}
         /> */}
-        <FilledButton
-          text={"Popular Profiles"}
-          onclick={() => {
-            getPopularProfiles();
+        {/* <FilledButton
+          text={"Get Posts for Profile"}
+          onclick={async () => {
+            console.log(await getPostsByProfileId("0x4863"));
           }}
-        />
+        /> */}
         {/* <div>
           <input
             id="inp"

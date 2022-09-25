@@ -9,13 +9,14 @@ function LandingPage() {
   const { accounts, connectWallet } = useConnection();
   return (
     <>
+      <Box height={60} />
       <main className="flex justify-between items-center container landingContainer">
         <div className="content">
           <h1 className="heading">Rise High, Soar Free</h1>
           <Box height={10} />
           <p className="subtitle-text">
             Falcon is a free to use, censorship resistant social media
-            application with inherent tranparency and simplified creator
+            application with inherent transparency and simplified creator
             incentives
           </p>
           {/* <Box height={10} />

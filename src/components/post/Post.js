@@ -14,7 +14,7 @@ function Post({
   return (
     <>
       <div className="flex cursor-pointer hover:bg-gray-300 post-card">
-        {profileImage ? (
+        {/* {profileImage ? (
           <div className="v-circle-lg">
             <img
               className="post-profile-img"
@@ -22,9 +22,9 @@ function Post({
               alt="Profile Picture"
             />
           </div>
-        ) : (
-          <div className="v-circle-lg"></div>
-        )}
+        ) : ( */}
+        <div className="v-circle-lg"></div>
+        {/* )} */}
 
         <Box width={25} />
 
