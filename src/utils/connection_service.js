@@ -2,6 +2,7 @@ import React, { useContext, useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 import { fetchContracts } from "./contracts_service";
+import { login } from "../api/login";
 
 const defaultChainId = 80001;
 
@@ -22,11 +23,24 @@ export function ConnectionProvider(props) {
     ethers: ethers,
     chainId: defaultChainId,
     accounts: [],
+    currProfile: "",
+    profiles: [],
+    isLoading: false,
+    isLoggedIn: false,
     error: "",
   });
 
+  const setLoading = (value) => setState({ ...state, isLoading: value });
+
+  const setCurrentUserProfile = (value) => {
+    setState({ ...state, currProfile: value });
+  };
+
   const connectWallet = useCallback(async () => {
     try {
+      if (state.isLoading) return;
+      setState({ ...state, isLoading: true });
+
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
       const accounts = await window.ethereum.request({
@@ -70,11 +84,15 @@ export function ConnectionProvider(props) {
         throw new Error("Switch to Mumbai testnet from your browser wallet");
       }
 
+      await login(accounts[0]);
+
       setState({
         ...state,
         accounts,
         chainId,
         provider,
+        isLoading: false,
+        isLoggedIn: true,
       });
 
       //   const contracts = await fetchContracts(signer, chainId);
@@ -156,6 +174,8 @@ export function ConnectionProvider(props) {
         value={{
           ...state,
           connectWallet,
+          setLoading,
+          setCurrentUserProfile,
         }}
       >
         {props.children}

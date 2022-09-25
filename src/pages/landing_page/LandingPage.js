@@ -1,3 +1,4 @@
+import { login } from "../../api/login";
 import FilledButton from "../../components/filled_button/FilledButton";
 import Box from "../../components/utils/Box";
 import { useConnection } from "../../utils/connection_service";
@@ -5,7 +6,7 @@ import { useConnection } from "../../utils/connection_service";
 import "./landing_page.css";
 
 function LandingPage() {
-  const { connectWallet } = useConnection();
+  const { accounts, connectWallet } = useConnection();
   return (
     <>
       <main className="flex justify-between items-center container landingContainer">
@@ -13,15 +14,18 @@ function LandingPage() {
           <h1 className="heading">Rise High, Soar Free</h1>
           <Box height={10} />
           <p className="subtitle-text">
-            Falcon, a social media app built specifically for tranparency and
-            creator incentives
+            Falcon is a free to use, censorship resistant social media
+            application with inherent tranparency and simplified creator
+            incentives
           </p>
+          {/* <Box height={10} />
+          <p className="subtitle-text">Built on top of Lens Protocol</p> */}
           <Box height={10} />
           <p className="subtitle-text">To get started,</p>
           <Box height={15} />
           <FilledButton
             classes="landing-btn"
-            text="Connect Wallet"
+            text="Login with Polygon"
             onclick={connectWallet}
           />
         </div>

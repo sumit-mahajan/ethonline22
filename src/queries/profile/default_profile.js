@@ -1,6 +1,12 @@
 import { gql } from "@apollo/client";
 import { apolloClient, executeQuery } from "../../utils/api_service";
 
+export const getDefaultProfileRequest = async (request) => {
+  const result = await executeQuery(DEFAULT_PROFILE, request);
+
+  return result.defaultProfile;
+};
+
 const DEFAULT_PROFILE = `query($request: DefaultProfileRequest!) {
     defaultProfile(request: $request) {
       id
@@ -84,9 +90,3 @@ const DEFAULT_PROFILE = `query($request: DefaultProfileRequest!) {
       }
     }
   }`;
-
-export const getDefaultProfileRequest = async (request) => {
-  const result = await executeQuery(DEFAULT_PROFILE, request);
-
-  return result.defaultProfile;
-};

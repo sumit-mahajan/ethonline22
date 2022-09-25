@@ -9,7 +9,7 @@ import TestNewComponent from "./pages/TestNewComponent";
 
 import { ConnectionProvider } from "./utils/connection_service";
 import FirstLoad from "./pages/FirstLoad";
-import Login from "./pages/Login";
+import ChooseProfilePage from "./pages/choose_profile_page/ChooseProfilePage";
 
 function App() {
   return (
@@ -22,8 +22,8 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />;
             <Route path="/profile/:id" element={<ProfilePage />} />;
             <Route path="/post/:id" element={<PostPage />} />;
+            <Route path="/chooseprofile" element={<ChooseProfilePage />} />;
             <Route path="/nc" element={<TestNewComponent />} />;
-            <Route path="/login" element={<Login />} />;
           </Routes>
         </BrowserRouter>
       </ConnectionProvider>

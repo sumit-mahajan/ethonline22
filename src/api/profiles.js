@@ -1,12 +1,11 @@
 import { getDefaultProfileRequest } from "../queries/profile/default_profile";
 import { getProfilesRequest } from "../queries/profile/get_profiles";
+import { createProfileRequest } from "../queries/profile/create_profile";
 
 export const getProfiles = async (address) => {
   const ownedBy = [address];
 
   const profilesFromOwner = await getProfilesRequest({ ownedBy });
-
-  console.log("profiles: result", profilesFromOwner);
 
   return profilesFromOwner;
 };
@@ -16,7 +15,14 @@ export const getDefaultProfile = async (address) => {
 
   const defaultProfile = await getDefaultProfileRequest({ ethereumAddress });
 
-  console.log("default profile: result", defaultProfile);
-
   return defaultProfile;
+};
+
+export const createProfile = async (handle, profilePictureUri) => {
+  const result = await createProfileRequest({
+    handle,
+    profilePictureUri,
+  });
+
+  return result;
 };

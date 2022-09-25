@@ -1,19 +1,55 @@
-import { getProfiles, getDefaultProfile } from "../api/profiles";
+import { login } from "../api/login";
+import { getProfiles, getDefaultProfile, createProfile } from "../api/profiles";
 import FilledButton from "../components/filled_button/FilledButton";
+import { useConnection } from "../utils/connection_service";
 import { getAddressFromENS } from "../utils/ethers_service";
+import { uploadImage } from "../utils/ipfs_service";
+import ChooseProfilePage from "./choose_profile_page/ChooseProfilePage";
 
 // Active Lens address to test 0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3
+// My Profile picture hash bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq
 
 function TestNewComponent() {
+  const { accounts } = useConnection();
+
+  const onFileChange = async (event) => {
+    console.log(await uploadImage(event.target.files[0]));
+  };
+
   return (
     <>
       <div style={{ display: "grid", placeItems: "center", height: "100vh" }}>
+        <ChooseProfilePage />
+        {/* <FilledButton
+          text={"Create Profile"}
+          onclick={() => {
+            createProfile(
+              "sumit1",
+              "bafybeiaecmcgtmun747epf5mznqqfoglfn7rniq5lnmq564x3hqjwqqneq"
+            );
+          }}
+        />
         <FilledButton
           text={"Default Profile"}
           onclick={() => {
-            getDefaultProfile("0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3");
+            getDefaultProfile(accounts[0]);
           }}
-        />
+        /> */}
+        {/* <div>
+          <input
+            id="inp"
+            onChange={onFileChange}
+            style={{ display: "none" }}
+            type="file"
+          />
+          <FilledButton
+            text={"Upload to IPFS"}
+            onclick={() => {
+              document.getElementById("inp").click();
+            }}
+          />
+        </div> */}
+
         {/* <FilledButton
           text={"GET ENS Address"}
           onclick={() => {
